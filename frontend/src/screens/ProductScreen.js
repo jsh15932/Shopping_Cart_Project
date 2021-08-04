@@ -2,7 +2,6 @@ import "./ProductScreen.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-// Actions
 import { getProductDetails } from "../redux/actions/productActions";
 import { addToCart } from "../redux/actions/cartActions";
 
@@ -27,7 +26,7 @@ const ProductScreen = ({ match, history }) => {
   return (
     <div className="productscreen">
       {loading ? (
-        <h2>Loading...</h2>
+        <h2>로딩..</h2>
       ) : error ? (
         <h2>{error}</h2>
       ) : (
@@ -38,24 +37,24 @@ const ProductScreen = ({ match, history }) => {
             </div>
             <div className="left__info">
               <p className="left__name">{product.name}</p>
-              <p>Price: ${product.price}</p>
-              <p>Description: {product.description}</p>
+              <p>가격: ${product.price}</p>
+              <p>설명: {product.description}</p>
             </div>
           </div>
           <div className="productscreen__right">
             <div className="right__info">
               <p>
-                Price:
+                가격:
                 <span>${product.price}</span>
               </p>
               <p>
-                Status:
+                상태:
                 <span>
-                  {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                  {product.countInStock > 0 ? "판매중" : "재고없음"}
                 </span>
               </p>
               <p>
-                Qty
+                수량
                 <select value={qty} onChange={(e) => setQty(e.target.value)}>
                   {[...Array(product.countInStock).keys()].map((x) => (
                     <option key={x + 1} value={x + 1}>
@@ -66,7 +65,7 @@ const ProductScreen = ({ match, history }) => {
               </p>
               <p>
                 <button type="button" onClick={addToCartHandler}>
-                  Add To Cart
+                  장바구니에 추가하기
                 </button>
               </p>
             </div>

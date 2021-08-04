@@ -3,10 +3,8 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-// Components
 import CartItem from "../components/CartItem";
 
-// Actions
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
 
 const CartScreen = () => {
@@ -39,11 +37,11 @@ const CartScreen = () => {
     <>
       <div className="cartscreen">
         <div className="cartscreen__left">
-          <h2>Shopping Cart</h2>
+          <h2>장바구니</h2>
 
           {cartItems.length === 0 ? (
             <div>
-              Your Cart Is Empty <Link to="/">Go Back</Link>
+              장바구니가 비어있습니다. <Link to="/">돌아가기</Link>
             </div>
           ) : (
             cartItems.map((item) => (
@@ -59,11 +57,11 @@ const CartScreen = () => {
 
         <div className="cartscreen__right">
           <div className="cartscreen__info">
-            <p>Subtotal ({getCartCount()}) items</p>
+            <p>총 ({getCartCount()}) 개의 상품</p>
             <p>${getCartSubTotal()}</p>
           </div>
           <div>
-            <button>Proceed To Checkout</button>
+            <button>구매하기</button>
           </div>
         </div>
       </div>

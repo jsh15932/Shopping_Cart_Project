@@ -23,13 +23,13 @@ const SideDrawer = ({ show, click }) => {
           <Link to="/cart">
             <i className="fas fa-shopping-cart"></i>
             <span>
-              Cart{" "}
+              카트{" "}
               <span className="sidedrawer__cartbadge">{getCartCount()}</span>
             </span>
           </Link>
         </li>
         <li>
-          <Link to="/">Shop</Link>
+          <Link to="/">쇼핑</Link>
         </li>
       </ul>
     </div>
